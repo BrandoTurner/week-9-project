@@ -7,16 +7,33 @@ window.onload = function() {
   // ( 1. create the element
   //   2. add a class to the element
   //   3. append the element to the body )
+function createDuck(){
+  let duck = document.createElement('div');
+  duck.setAttribute('class', 'duck')
+  body.appendChild(duck)
 
   // 2. Next, use setInterval to toggle the "flap" class on the duck every 250 ms (1/4 second)
   // https://www.w3schools.com/jsref/met_win_setinterval.asp
+  
+  let flap = setInterval(function duckFlap(){
+    duck.classList.toggle("flap")
+
+  }, 250);
+
 
   // 3. Now, let's move the duck using CSS "top" and "left". Create
   // a function `moveDuck` that takes a duck object as an argument and sets the
   // "top" and "left" CSS properties.
   // HINT: Use Math.random() * window.innerWidth    for "left"
   //       And Math.random() * window.innerHeight   for "top"
+function moveDuck(){
+  duck.style.left = `${Math.random() * window.innerWidth}px`
+  duck.style.top = `${Math.random() * window.innerHeight}px`
+}
 
+moveDuck();
+return duck;
+}
   // 4. Try making the duck move to a different location every second (what did we use to do this several lines up??)
 
   // 5. Congratulations! Move on to part 2!
